@@ -4,7 +4,7 @@ import FormControl from "./FormControl";
 const INITIAL_STATE = { name: "", number: "" };
 
 class Form extends Component {
-  state = {};
+  state = { name: "", number: "" };
 
   handleChange = (event) => {
     const inputName = event.target.name;
