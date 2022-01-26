@@ -16,12 +16,12 @@ class App extends Component {
     filter: "",
   };
 
-  handlerFilter = (searchedValue) => {
+  handleFilter = (searchedValue) => {
     const filter = searchedValue.target.value.toLowerCase();
     this.setState({ filter });
   };
 
-  handlerFormSubmit = (data) => {
+  handleFormSubmit = (data) => {
     this.setState((prevState) => ({
       contacts: [...prevState.contacts, data],
       ...data,
@@ -36,10 +36,10 @@ class App extends Component {
       <>
         <h1>Homework 2</h1>
         <Section title="Task 2.2 Phonebook">
-          <Form onSubmit={this.handlerFormSubmit} />
+          <Form onSubmit={this.handleFormSubmit} />
           {this.state.contacts.length > 0 && (
             <ContactList
-              handlerFilter={this.handlerFilter}
+              handleFilter={this.handleFilter}
               contacts={
                 this.state.filter.length > 0
                   ? filteredContacts :
