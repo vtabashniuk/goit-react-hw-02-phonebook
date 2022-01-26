@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Section from "./Section";
 import Form from "./Form";
 import ContactList from "./ContactList";
+import Filter from "./Filter";
 
 class App extends Component {
   state = {
@@ -39,13 +40,14 @@ class App extends Component {
           <Form onSubmit={this.handleFormSubmit} />
           {this.state.contacts.length > 0 && (
             <ContactList
-              handleFilter={this.handleFilter}
               contacts={
                 this.state.filter.length > 0
-                  ? filteredContacts :
-                   this.state.contacts
+                  ? filteredContacts
+                  : this.state.contacts
               }
-            />
+            >
+              <Filter handleFilter={this.handleFilter} />
+            </ContactList>
           )}
         </Section>
       </>
