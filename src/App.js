@@ -3,6 +3,7 @@ import Section from "./Section";
 import Form from "./Form";
 import ContactList from "./ContactList";
 import Filter from "./Filter";
+import { nanoid } from "nanoid";
 
 class App extends Component {
   state = {
@@ -23,8 +24,10 @@ class App extends Component {
   };
 
   handleFormSubmit = (data) => {
+    const id = nanoid();
+    const contactItem = {id, ...data}
     this.setState((prevState) => ({
-      contacts: [...prevState.contacts, data],
+      contacts: [...prevState.contacts, contactItem],
       ...data,
     }));
   };

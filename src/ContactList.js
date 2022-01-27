@@ -5,8 +5,8 @@ const ContactList = ({contacts, children}) => (
     <h2>Contacts</h2>
     {children}
     <ul>
-      {contacts.map(({ name, number }) => (
-        <li key={name}>
+      {contacts.map(({ id, name, number }) => (
+        <li key={id}>
           {name} : {number}
         </li>
       ))}
