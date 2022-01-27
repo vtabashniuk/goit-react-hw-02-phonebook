@@ -13,8 +13,6 @@ class App extends Component {
       { id: "id-3", name: "Eden Clements", number: "645-17-79" },
       { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
     ],
-    name: "",
-    number: "",
     filter: "",
   };
 
@@ -23,13 +21,23 @@ class App extends Component {
     this.setState({ filter });
   };
 
+  duplicateCheck = (data) => {
+    const isDuplicate = false;
+    if (this.state.contacts.find((item) => item.name === data.name)) {
+      alert(`Contact with name: ${data.name} already exists`);
+      return !isDuplicate;
+    }
+    return isDuplicate;
+  };
+
   handleFormSubmit = (data) => {
-    const id = nanoid();
-    const contactItem = {id, ...data}
-    this.setState((prevState) => ({
-      contacts: [...prevState.contacts, contactItem],
-      ...data,
-    }));
+    if (!this.duplicateCheck(data)) {
+      const id = nanoid();
+      const contactItem = { id, ...data };
+      this.setState((prevState) => ({
+        contacts: [...prevState.contacts, contactItem],
+      }));
+    }
   };
 
   render() {
