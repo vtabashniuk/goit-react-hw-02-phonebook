@@ -40,6 +40,11 @@ class App extends Component {
     }
   };
 
+  handleDelete = (id) => {
+    const clearedContactList = this.state.contacts.filter(item => item.id !== id);
+    this.setState({ contacts: [...clearedContactList] });
+  };
+
   render() {
     const filteredContacts = this.state.contacts.filter((contact) =>
       contact.name.toLowerCase().includes(this.state.filter)
@@ -56,6 +61,7 @@ class App extends Component {
                   ? filteredContacts
                   : this.state.contacts
               }
+              handleDelete={this.handleDelete}
             >
               <Filter handleFilter={this.handleFilter} />
             </ContactList>

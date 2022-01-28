@@ -1,6 +1,7 @@
 import React from "react";
+import FormControl from "./FormControl";
 
-const ContactList = ({contacts, children}) => (
+const ContactList = ({ contacts, children, handleDelete }) => (
   <div>
     <h2>Contacts</h2>
     {children}
@@ -8,6 +9,7 @@ const ContactList = ({contacts, children}) => (
       {contacts.map(({ id, name, number }) => (
         <li key={id}>
           {name} : {number}
+          <FormControl label="Delete" onClick={() => handleDelete(id)}/>
         </li>
       ))}
     </ul>

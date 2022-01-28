@@ -1,5 +1,5 @@
 import React from "react";
 
-const FormControl = ({ label }) => <button type="submit">{label}</button>;
+const FormControl = ({ label, onClick }) => <button type="submit" onClick={onClick}>{label}</button>;
 
 export default FormControl;
