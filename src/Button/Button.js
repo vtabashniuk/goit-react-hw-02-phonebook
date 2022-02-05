@@ -1,15 +1,29 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./Button.module.css";
 
-const FormControl = ({ type, label, onClick, btnClass }) => {
+const defaultBtnClass = "";
+
+const Button = ({ type, label, onClick, btnClass }) => {
   let btnClasses = [styles.button];
   if (btnClass) {
     btnClasses.push(styles[btnClass]);
   }
   return (
-    <button type={type} onClick={onClick} className={btnClasses.join(' ')}>
+    <button type={type} onClick={onClick} className={btnClasses.join(" ")}>
       {label}
     </button>
   );
 };
-export default FormControl;
+
+Button.defaultProps = {
+  btnClass: defaultBtnClass,
+};
+
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  btnClass: PropTypes.string,
+};
+export default Button;

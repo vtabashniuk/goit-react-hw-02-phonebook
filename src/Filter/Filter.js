@@ -1,9 +1,12 @@
 import React from "react";
-import styles from "./Filter.module.css"
+import PropTypes from "prop-types";
+import styles from "./Filter.module.css";
 
-const Filter = ({handleFilter}) => (
+const Filter = ({ handleFilter }) => (
   <div className={styles.filter}>
-    <label htmlFor="searchInput" className={styles.label}>Find contact by name</label>
+    <label htmlFor="searchInput" className={styles.label}>
+      Find contact by name
+    </label>
     <input
       id="searchInput"
       type="search"
@@ -12,5 +15,7 @@ const Filter = ({handleFilter}) => (
     ></input>
   </div>
 );
+
+Filter.propTypes = { handleFilter: PropTypes.func.isRequired };
 
 export default Filter;
