@@ -51,7 +51,7 @@ class App extends Component {
     );
     return (
       <>
-        <h1>Homework 2</h1>
+        <h1 className="title">Homework 2</h1>
         <Section title="Task 2.2 Phonebook">
           <Form onSubmit={this.handleFormSubmit} />
           {this.state.contacts.length > 0 && (

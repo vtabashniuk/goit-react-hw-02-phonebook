@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import FormControl from "./FormControl";
+import Button from "../Button";
+import styles from "./Form.module.css";
 
 const INITIAL_STATE = { name: "", number: "" };
 
@@ -27,8 +28,8 @@ class Form extends Component {
     const handleSubmit = this.handleSubmit;
     return (
       <form onSubmit={handleSubmit}>
-        <label>
-          <span>Name</span>
+        <label className={styles.label}>
+          <span className={styles.label_title}>Name</span>
           <input
             type="text"
             name="name"
@@ -40,8 +41,8 @@ class Form extends Component {
             required
           ></input>
         </label>
-        <label>
-          <span>Phone Number</span>
+        <label className={styles.label}>
+          <span className={styles.label_title}>Phone Number</span>
           <input
             type="tel"
             name="number"
@@ -53,7 +54,7 @@ class Form extends Component {
             required
           ></input>
         </label>
-        <FormControl label="Add Contact" />
+        <Button type="submit" label="Add Contact" btnClass="form" />
       </form>
     );
   }
