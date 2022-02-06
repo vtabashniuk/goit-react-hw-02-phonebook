@@ -25,11 +25,13 @@ const ContactList = ({ contacts, children, handleDelete }) => (
 );
 
 ContactList.propTypes = {
-  contacts: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  }),
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
   children: PropTypes.element,
   handleDelete: PropTypes.func.isRequired,
 };
